@@ -1,0 +1,29 @@
+// COLOR PALETTE
+
+$black: #000000;
+$dark-gray: #303130;
+$gray: #828282;
+$light-gray: #FAFAFA;
+$medium-gray: #F5F5F5;
+$pink: #F15F7F;
+$white: #FFFFFF;
+
+// VARIABLES
+
+$alt-font: Lato, arial, helvetica, sans-serif;
+$default-color: $dark-gray;
+$default-font: Raleway, arial, helvetica, sans-serif;
+$default-size: 16px; 
+$line-height: 30px;
+$padding: $line-height;
+$serif: "Playfair Display", georgia, utopia, serif;
+
+// RESPONSIVE BREAKPOINTS
+
+$breakpoints: (
+	'x-large': (min-width:1200px),
+	'large': (min-width:992px),
+	'medium': (min-width:768px),
+	'small': (min-width:544px),
+	'x-small': (max-width:544px)
+);

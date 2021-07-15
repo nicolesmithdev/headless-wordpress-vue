@@ -1,0 +1,79 @@
+/*
+ * ELEMENTS
+ */
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+p {
+    margin: 0 0 $padding;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*
+ * CLASSES
+ */
+
+.aligncenter {
+    clear: both;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 90%;
+    width: 1080px;
+}
+
+.content {
+    float: left;
+    width: 65%;
+}
+
+.entry {
+    background-color: $white;
+    border: 5px solid $medium-gray;
+    margin-bottom: $padding;
+    padding: $padding;
+
+    @include respond-to('x-small') {
+        padding: $padding/2;
+    }
+
+    .entry-title {
+        color: $gray;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        a {
+            color: $gray;
+            text-decoration: none;
+
+            &:hover {
+                color: $pink;
+            }
+        }
+    }
+
+    .entry-meta {
+        color: $gray;
+        font: italic #{13px}/#{$line-height} $serif;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: lowercase;
+    }
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.sidebar {
+    float: right;
+    width: 30%;
+}

@@ -1,0 +1,26 @@
+input, select, textarea {
+    background-color: $white;
+    border: 1px solid #EAEAEA;
+    color: $dark-gray;
+    font-size: $default-size;
+    font-weight: 400;
+    padding: $padding/2;
+    width: 100%;
+}
+
+::placeholder {
+    color: #333;
+    opacity: 1;
+}
+
+input {
+    &:focus {
+        border: 1px solid #999;
+        outline: none;
+    }
+    
+    &[type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+    }
+}

@@ -1,0 +1,27 @@
+@mixin background-gradient($topcolor, $bottomcolor) {
+  background:$topcolor;
+	background:-webkit-gradient(linear, left top, left bottom, from($topcolor), to($bottomcolor));
+	background:-webkit-linear-gradient($topcolor, $bottomcolor);
+	background:-moz-linear-gradient(center top, $topcolor 0%, $bottomcolor 100%);
+	background:-moz-gradient(center top, $topcolor 0%, $bottomcolor 100%);
+}
+
+// Responsive breakpoint manager
+// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+      );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}` . ' + 'Please make sure it is defined in '$breakpoints' map.';
+  }
+}

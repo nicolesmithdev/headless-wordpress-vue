@@ -1,0 +1,126 @@
+@import
+	'sass/abstracts/variables',			// Sass Variables
+	'sass/abstracts/mixins';			// Sass Mixins
+
+
+ul.resource-cats {
+	list-style: none;
+	margin: 0 0 $padding*2;
+	padding: 0;
+	text-align: center;
+
+	li {
+		display: block;
+		margin: $padding/4 0;
+
+		@include respond-to('small') {
+			display: inline-block;
+			margin: $padding/4;
+		}
+
+		a:link,
+		a:visited {
+			background: $gray;
+			color: $white;
+			display: block;
+			padding: $padding/2 $padding;
+			text-decoration: none;
+		}
+
+		a:hover,
+		a:active,
+		a:focus {
+			background: $pink;
+		}
+	}
+}
+
+.resources {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	text-align: left;
+
+	&:not(:last-of-type) {
+		border-bottom: 5px solid #EDEDED;
+		margin-bottom: $padding*2;
+		padding-bottom: $padding*2;
+	}
+
+	h2.cat-name {
+		margin-bottom: $padding*2;
+		flex-basis: 100%;
+		text-align: center;
+
+		&:before, &:after {
+			content: "\f005";
+			font: normal normal normal #{10px}/#{$line-height} FontAwesome;
+			margin-right: $padding/4;
+			vertical-align: top;
+		}
+
+		&:after {
+			margin: 0 0 0 $padding/4;
+		}
+	}
+
+	.resource {
+		font-size: 16px;
+
+		&:not(:last-child) {
+			margin-bottom: $padding*2;
+		}
+
+		& > img {
+			box-shadow: 0 0 3px rgba(0,0,0,0.25);
+			max-height: 250px;
+			max-width: 400px;
+			width: 100%;
+
+			@include respond-to('x-small') {
+				margin-bottom: $padding;
+			}
+
+			@include respond-to('small') {
+				float: left;
+				width: 22%;
+			}
+		}
+
+		& > div {
+			@include respond-to('small') {
+				float: right;
+				width: 74%;
+			}
+		}
+
+		strong {
+			display: block;
+			font: #{24px}/#{$line-height} $alt-font;
+			margin-bottom: $padding/2;
+		}
+
+		.button {
+			background: $pink;
+			color: $white;
+			font-size: 14px;
+			font-weight: 500;
+			margin: $padding/2 0;
+			padding: 5px $padding/2;
+			text-transform: uppercase;
+
+			&:hover {
+				background: $default-color;
+			}
+		}
+
+		.link {
+			color: $pink;
+
+			&:hover {
+				color: $default-color !important;
+				cursor: pointer;
+			}
+		}
+	}
+}

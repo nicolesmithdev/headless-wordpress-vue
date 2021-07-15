@@ -1,0 +1,85 @@
+ul.resource-cats {
+  list-style: none;
+  margin: 0 0 60px;
+  padding: 0;
+  text-align: center; }
+  ul.resource-cats li {
+    display: block;
+    margin: 7.5px 0; }
+    @media (min-width: 544px) {
+      ul.resource-cats li {
+        display: inline-block;
+        margin: 7.5px; } }
+    ul.resource-cats li a:link,
+    ul.resource-cats li a:visited {
+      background: #828282;
+      color: #FFFFFF;
+      display: block;
+      padding: 15px 30px;
+      text-decoration: none; }
+    ul.resource-cats li a:hover,
+    ul.resource-cats li a:active,
+    ul.resource-cats li a:focus {
+      background: #F15F7F; }
+
+.resources {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left; }
+  .resources:not(:last-of-type) {
+    border-bottom: 5px solid #EDEDED;
+    margin-bottom: 60px;
+    padding-bottom: 60px; }
+  .resources h2.cat-name {
+    margin-bottom: 60px;
+    flex-basis: 100%;
+    text-align: center; }
+    .resources h2.cat-name:before, .resources h2.cat-name:after {
+      content: "\f005";
+      font: normal normal normal 10px/30px FontAwesome;
+      margin-right: 7.5px;
+      vertical-align: top; }
+    .resources h2.cat-name:after {
+      margin: 0 0 0 7.5px; }
+  .resources .resource {
+    font-size: 16px; }
+    .resources .resource:not(:last-child) {
+      margin-bottom: 60px; }
+    .resources .resource > img {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+      max-height: 250px;
+      max-width: 400px;
+      width: 100%; }
+      @media (max-width: 544px) {
+        .resources .resource > img {
+          margin-bottom: 30px; } }
+      @media (min-width: 544px) {
+        .resources .resource > img {
+          float: left;
+          width: 22%; } }
+    @media (min-width: 544px) {
+      .resources .resource > div {
+        float: right;
+        width: 74%; } }
+    .resources .resource strong {
+      display: block;
+      font: 24px/30px Lato, arial, helvetica, sans-serif;
+      margin-bottom: 15px; }
+    .resources .resource .button {
+      background: #F15F7F;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 15px 0;
+      padding: 5px 15px;
+      text-transform: uppercase; }
+      .resources .resource .button:hover {
+        background: #303130; }
+    .resources .resource .link {
+      color: #F15F7F; }
+      .resources .resource .link:hover {
+        color: #303130 !important;
+        cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

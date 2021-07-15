@@ -1,0 +1,28 @@
+/*!
+ * Theme Name: Toning With Twins
+ * Author: Nicole Smith
+ * Author URI: https://www.nicolesmithweb.com/
+ * Version: 2.0.0
+ * Template: genesis
+ */
+
+@import
+	'sass/abstracts/variables',	// Sass Variables
+	'sass/abstracts/mixins';	// Sass Mixins
+
+@import
+	'sass/base/reset',			// Reset / Normalize
+	'sass/base/base',
+	'sass/base/typography';		// Typography
+
+@import
+	'sass/components/blocks',	// Gutenberg Blocks
+	'sass/components/buttons';	// Buttons
+
+@import
+	'sass/layout/navigation',	// Navigation
+	'sass/layout/header',		// Header
+	'sass/layout/footer',		// Footer
+	'sass/layout/sidebar',		// Sidebar
+	'sass/layout/forms',		// Forms
+	'sass/layout/print';				// Print specific styles

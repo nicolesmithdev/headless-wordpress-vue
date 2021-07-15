@@ -1,0 +1,23 @@
+// COLOR PALETTE
+
+$dark-gray: #303130;
+$gray: #828282;
+$pink: #F15F7F;
+$white: #FFFFFF;
+
+// VARIABLES
+
+$alt-font: Lato, arial, helvetica, sans-serif;
+$default-color: $dark-gray;
+$line-height: 30px;
+$padding: $line-height;
+
+// RESPONSIVE BREAKPOINTS
+
+$breakpoints: (
+	'x-large': (min-width:1200px),
+	'large': (min-width:992px),
+	'medium': (min-width:768px),
+	'small': (min-width:544px),
+	'x-small': (max-width:544px)
+);

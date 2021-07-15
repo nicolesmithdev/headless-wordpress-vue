@@ -1,0 +1,31 @@
+.footer-widgets {
+	clear:both;
+
+	@include respond-to('x-small') {
+		display: none;
+		visibility: hidden;
+	}
+
+	.footer-widget-area {
+		&:last-child { margin-bottom:0; }
+	}
+	.widget:last-child { margin-bottom:0; }
+}
+
+
+/* Site Footer
+---------------------------------------------------------------------------- */
+
+.site-footer {
+	background-color:$dark-gray; color:$white; padding:$padding/2; text-align:center;
+
+	@include respond-to('x-small') {
+		display: none;
+		visibility: hidden;
+	}
+
+	a {
+		color:$white; text-decoration:none;
+		&:focus, &:hover { text-decoration:underline; }
+	}
+}

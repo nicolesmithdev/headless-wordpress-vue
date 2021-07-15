@@ -1,0 +1,43 @@
+.site-header {
+	text-align:center;
+	.title-area {
+		padding-top:$padding; padding-bottom:$padding;
+		.wp-custom-logo & {
+			margin-left:auto; margin-right:auto; max-width:245px; width:100%;
+			img {
+				width: 125px;
+				@include respond-to('small') {
+					width: 185px;
+				}
+			}
+		}
+	}
+	.site-title {
+		font-size:20px; font-weight:600; margin-bottom:0;
+		.wp-custom-logo & {
+			border:0; clip:rect(0,0,0,0); height:1px; overflow:hidden; position:absolute !important; width:1px; word-wrap:normal !important;
+		}
+		a, a:focus, a:hover { color:$default-color; text-decoration:none; }
+	}
+	.site-description {
+		border:0; clip:rect(0,0,0,0); height:1px; overflow:hidden; position:absolute !important; width:1px; word-wrap:normal !important;
+	}
+	/*
+	 * TOOLBAR
+	 */
+	#toolbar {
+		background-color:$pink; color:$white; min-height:10px; text-align:right;
+		a { color:$white; }
+		.menu-social-media-container {
+			@include respond-to('small') { display:none; visibility:hidden; }
+		}
+		> .wrap {
+			align-items:center; display:flex; justify-content:space-between; max-width:100%; padding:0 $padding/2;
+			> * {
+				flex-basis:50%;
+				&:first-child { text-align:left; }
+				&:last-child { text-align:right; }
+			}
+		}
+	}
+}

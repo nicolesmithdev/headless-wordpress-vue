@@ -1,0 +1,46 @@
+.sidebar {
+	font-size: 14px;
+	line-height: 25px;
+	margin-bottom: $padding;
+
+	@include respond-to('large') {
+		float: right;
+		width: 30%;
+
+		.sidebar-content & {
+			float: left;
+		}
+	}
+	a:not(.button) {
+		color:$default-color; text-decoration:none;
+		&:focus, &:hover { color:$pink; text-decoration:underline; }
+	}
+	p { margin-bottom:$padding; }
+	.menu-social-media-container { font-size:$default-size; }
+
+	.searchandfilter {
+		h4 {
+			margin: 0;
+		}
+
+		> div > ul > li {
+			margin-bottom: $padding;
+		}
+	}
+
+	.widget {
+		background-color:$white; border:5px solid $medium-gray; margin-bottom:$padding; padding:$padding/2; text-align:center;
+		ul { text-align:left; }
+		/*
+		 * ABOUT ME
+		 */
+		&#custom_html-2 {
+			.button {
+				background-color:transparent; color:$pink; padding:0;
+				&:hover { color:$dark-gray; }
+			}
+		}
+	}
+	.widget-title { font-weight:700; text-transform:uppercase; }
+	.post-date { display:block; font:italic #{13px}/#{15px} $serif; text-transform:lowercase; }
+}

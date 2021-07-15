@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+	background-color: $light-gray;
+	color: $default-color;
+	font: #{$default-size}/#{$line-height} $default-font;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+/*
+ * LINKS
+ */
+
+a {
+	color: $pink;
+
+	&:hover {
+		color: $dark-gray;
+	}
+}
+
+/*
+ * HEADINGS
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	color: $gray;
+	font-family: $default-font;
+	font-weight: 700;
+	line-height: $line-height;
+	margin: 0 0 $padding;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 27px;
+}
+
+h3 {
+	font-size: 24px;
+
+	.entry-content & {
+		font-weight: 600;
+	}
+}
+
+h4 {
+	font-size: 20px;
+
+	.entry-content & {
+		font-weight: 600;
+		margin-top: $padding*1.5;
+	}
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+/*
+ * CLASSES
+ */
+
+.has-small-font-size {
+	font-size: 12px;
+}

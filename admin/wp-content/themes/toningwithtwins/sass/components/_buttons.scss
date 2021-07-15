@@ -1,0 +1,18 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button {
+	background-color:$dark-gray; border:0; border-radius:0; color:$white; cursor:pointer; font-size:14px; font-weight:600; padding:12.5px 25px; text-align:center; text-decoration:none; text-transform:uppercase; white-space:normal; width:auto;
+	&:focus, &:hover { background-color:$pink; color:$white; }
+}
+
+.button {
+	display:inline-block;
+	.entry-content & {
+		&:focus, &:hover { color:$white; }
+	}
+	&.more-link {
+		display:block; margin-left:auto; margin-right:auto; max-width:100%; width:190px;
+	}
+}

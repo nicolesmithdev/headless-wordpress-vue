@@ -7,7 +7,12 @@
             <router-link :to="`/` + slug" v-html="title"></router-link>
         </h2>
         <router-link :to="`/` + slug" v-if="image">
-            <img :src="image" :alt="title" />
+            <v-img
+                :lazy-src="lazySrc"
+                :src="image"
+                :alt="title"
+            >
+            </v-img>
         </router-link>
         <div v-html="excerpt" class="entry-content"></div>
     </div>
@@ -42,6 +47,9 @@ export default {
         }
     },
     computed: {
+        lazySrc() {
+            return this.featuredImageUrls && this.featuredImageUrls.thumbnail[0] ? this.featuredImageUrls.thumbnail[0] : this.image;
+        },
         postClasses() {
             return 'post-' + this.id + ' post entry';
         },

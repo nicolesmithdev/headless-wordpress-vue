@@ -64,7 +64,7 @@ msgstr "Tijdens het bijwerken van de plug-in zijn we er niet in geslaagd om je a
 #: mailchimp.php:156
 #: mailchimp.php:166
 msgid "Success! We were able to verify your username & password! Let's continue, shall we?"
-msgstr "Succes! We hebben je gebruikersnaam en wachtwoord kunnen verifi‘ren! Verder gaan?"
+msgstr "Succes! We hebben je gebruikersnaam en wachtwoord kunnen verifiï¿½ren! Verder gaan?"
 
 #: mailchimp.php:178
 #: mailchimp.php:179
@@ -158,7 +158,7 @@ msgstr "Wanneer je een ander profiel gebruik, zullen de huidige instellen verwij
 
 #: mailchimp.php:397
 msgid "If any of that happens, no biggie - just reconfigure your login and the items below..."
-msgstr "Als er iets van dat gebeurt, geen probleem - gewoon je aanmeldgegevens en de gegevens hieronder opnieuw instellenÉ"
+msgstr "Als er iets van dat gebeurt, geen probleem - gewoon je aanmeldgegevens en de gegevens hieronder opnieuw instellenï¿½"
 
 #: mailchimp.php:403
 msgid "Logged in as"
@@ -179,7 +179,7 @@ msgstr "Kies een lijst die je wil gebruiken."
 #: mailchimp.php:432
 #, php-format
 msgid "Uh-oh, you don't have any lists defined! Please visit %s, login, and setup a list before using this tool!"
-msgstr "Oeps, je hebt nog geen lijsten! Bezoek %s en maak een lijst aan, voordat je deze tool gebruiktÓ"
+msgstr "Oeps, je hebt nog geen lijsten! Bezoek %s en maak een lijst aan, voordat je deze tool gebruiktï¿½"
 
 #: mailchimp.php:437
 msgid "Select A List"
@@ -195,7 +195,7 @@ msgstr "Let op:"
 
 #: mailchimp.php:453
 msgid "Updating your list will not cause settings below to be lost. Changing to a new list will."
-msgstr "Bijwerken van je lijst zal je instellingen niet zoekmaken. Een andere nieuwe lijst kiezen wŽl."
+msgstr "Bijwerken van je lijst zal je instellingen niet zoekmaken. Een andere nieuwe lijst kiezen wï¿½l."
 
 #: mailchimp.php:471
 msgid "Reset List Options and Select again"

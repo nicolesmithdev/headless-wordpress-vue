@@ -11,13 +11,7 @@
             <template v-for="post in posts">
                 <SinglePost
                     :key="post.id"
-                    :id="post.id"
-                    :slug="post.slug"
-                    :title="post.title.rendered"
-                    :excerpt="post.excerpt.rendered"
-                    :date="post.date"
-                    :featured-image="post.featured_image_src"
-                    :featured-image-urls="post.featured_image_urls"
+                    :post="post"
                 />
             </template>
             <Pagination 
@@ -32,8 +26,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import SinglePost from '../SinglePost';
-import Pagination from '../UI/BasePagination';
+import SinglePost from './SinglePost';
+import Pagination from '../../UI/BasePagination';
 // import SearchResults from '../SearchResults';
 
 export default {
@@ -64,7 +58,6 @@ export default {
     methods: {
         async loadPosts() {
             this.isLoading = true;
-            console.log('route', this.$route);
             let route = this.$route.query.s ? 'search' : 'posts';
             try {
                 await this.$store.dispatch('LOAD_POSTS', {

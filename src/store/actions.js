@@ -33,13 +33,23 @@ export default {
         });
     },
 
-    LOAD_PAGE: async function({ commit }, payload) {
-        await this._vm.$http.get('wp/v2/pages').then((response) => {
-            const data = response.data.filter(page => page.slug === payload.route)[0];
-            commit('SET_PAGE', data);
-        }, error => {
-            console.log(error);
-        });
+    LOAD_PAGE: async function({ commit, dispatch }, payload) {
+        const response = await this._vm.$http.get(`wp/v2/pages/?slug=${payload.route}`);
+        if (response.status == 200) {
+            if (response.data.length) {
+                commit('SET_PAGE', response.data[0]);
+            }
+            await dispatch('LOAD_POST', { route: payload.route });
+        }
+        return false;
+    },
+
+    LOAD_POST: async function({ commit }, payload) {
+        const response = await this._vm.$http.get(`wp/v2/posts/?slug=${payload.route}`);
+        if (response.status == 200 && response.data.length) {
+            commit('SET_PAGE', response.data[0]);
+        }
+        return false;
     },
     
     LOAD_POSTS: async function({ commit }, payload) {         

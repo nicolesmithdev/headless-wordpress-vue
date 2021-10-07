@@ -2,15 +2,12 @@
     <div class="pagination">
         <ul>
             <li>
-                <button 
-                    :disable="isPrevButtonDisabled"
-                    @click="prevPage"
-                >
+                <button :disable="isPrevButtonDisabled" @click="prevPage">
                     &laquo; Previous Page
                 </button>
             </li>
             <template v-for="trigger in triggers">
-                <base-pagination-trigger 
+                <base-pagination-trigger
                     :key="trigger"
                     :class="{ current: trigger === currentPage }"
                     :pageNumber="trigger"
@@ -18,10 +15,7 @@
                 />
             </template>
             <li>
-                <button
-                    :disable="isNextButtonDisabled"
-                    @click="nextPage"
-                >
+                <button :disable="isNextButtonDisabled" @click="nextPage">
                     Next Page &raquo;
                 </button>
             </li>
@@ -37,15 +31,15 @@ export default {
     props: {
         currentPage: {
             type: Number,
-            required: true
+            required: true,
         },
         visiblePagesCount: {
             type: Number,
-            default: 5
-        }
+            default: 5,
+        },
     },
     components: {
-        BasePaginationTrigger
+        BasePaginationTrigger,
     },
     computed: {
         isPrevButtonDisabled() {
@@ -62,7 +56,9 @@ export default {
             const pageCount = this.getPageCount;
             const visiblePagesCount = this.visiblePagesCount;
             const visiblePagesThreshold = (visiblePagesCount - 1) / 2;
-            const paginationTriggersArray = Array(this.visiblePagesCount - 1).fill(0);
+            const paginationTriggersArray = Array(
+                this.visiblePagesCount - 1
+            ).fill(0);
 
             // scenario 1 - the selected page # is smaller than half of the list width
             if (currentPage <= visiblePagesThreshold + 1) {
@@ -73,7 +69,7 @@ export default {
                     }
                 );
                 pagintationTriggers.push('...', pageCount);
-                return pagintationTriggers
+                return pagintationTriggers;
             }
 
             // scenario 2 - the selected page # is bigger than half of the list width counting from the end of the list
@@ -89,7 +85,8 @@ export default {
 
             // scenario 3 - all other cases
             else {
-                paginationTriggersArray[0] = currentPage - visiblePagesThreshold + 1;
+                paginationTriggersArray[0] =
+                    currentPage - visiblePagesThreshold + 1;
                 const pagintationTriggers = paginationTriggersArray.map(
                     (paginationTrigger, index) => {
                         return paginationTriggersArray[0] + index;
@@ -99,7 +96,7 @@ export default {
                 pagintationTriggers.push('...', pageCount);
                 return pagintationTriggers;
             }
-        }
+        },
     },
     methods: {
         nextPage() {
@@ -110,15 +107,15 @@ export default {
         },
         onLoadPage(value) {
             this.$emit('loadPage', value);
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style lang="scss">
 .pagination {
     clear: both;
-    margin: $padding*2 0;
+    margin: $padding * 2 0;
 
     ul {
         margin: 0;
@@ -136,10 +133,10 @@ export default {
             border: none;
             color: #333;
             cursor: pointer;
-            display: block;            
+            display: block;
             font-size: 16px;
             font-weight: 600;
-            line-height: $line-height;   
+            line-height: $line-height;
             padding: 8px 12px;
         }
 

@@ -1,20 +1,17 @@
 <template>
     <div>
-        <BaseSpinner v-if="isLoading"/>
+        <BaseSpinner v-if="isLoading" />
         <template v-else-if="hasSearchQuery">
             <h1>Search Results</h1>
-            <ul v-for="post in posts" :key="post.id">
-                <li>{{ post.title }}</li>
-            </ul>
+            <template v-for="post in posts">
+                <SinglePost :key="post.id" :post="post" />
+            </template>
         </template>
         <template v-else-if="hasPosts">
             <template v-for="post in posts">
-                <SinglePost
-                    :key="post.id"
-                    :post="post"
-                />
+                <SinglePost :key="post.id" :post="post" />
             </template>
-            <Pagination 
+            <Pagination
                 :current-page="currentPage"
                 @nextPage="changePage('next')"
                 @prevPage="changePage('prev')"
@@ -28,19 +25,17 @@
 import { mapGetters } from 'vuex';
 import SinglePost from './SinglePost';
 import Pagination from '../../UI/BasePagination';
-// import SearchResults from '../SearchResults';
 
 export default {
     components: {
         SinglePost,
         Pagination,
-        // SearchResults
     },
     data() {
         return {
             isLoading: false,
             currentPage: 1,
-            postsPerPage: 3
+            postsPerPage: 3,
         };
     },
     created() {
@@ -53,26 +48,35 @@ export default {
         },
         hasPosts() {
             return !this.isLoading && this.$store.getters.hasPosts;
-        }
+        },
     },
     methods: {
         async loadPosts() {
             this.isLoading = true;
             let route = this.$route.query.s ? 'search' : 'posts';
-            try {
-                await this.$store.dispatch('LOAD_POSTS', {
-                    apiRoute: route,
-                    query: '80 day',
-                    postsPerPage: this.postsPerPage
-                })
-            }
-            catch(error) {
-                console.log('loadPosts error', error);
+            if (route == 'search') {
+                try {
+                    await this.$store.dispatch('FETCH_SEARCH_RESULTS', {
+                        query: this.hasSearchQuery,
+                        postsPerPage: this.postsPerPage,
+                    });
+                } catch (error) {
+                    console.log('loadPosts error', error);
+                }
+            } else {
+                try {
+                    await this.$store.dispatch('LOAD_POSTS', {
+                        page: this.currentPage,
+                        postsPerPage: this.postsPerPage,
+                    });
+                } catch (error) {
+                    console.log('loadPosts error', error);
+                }
             }
             this.isLoading = false;
         },
         changePage(value) {
-            switch(value) {
+            switch (value) {
                 case 'next':
                     this.currentPage += 1;
                     break;
@@ -82,22 +86,28 @@ export default {
                 default:
                     this.currentPage = value;
             }
-        }
+            window.scrollTo(0, 0);
+        },
     },
     watch: {
-        '$route' (to, from) {
+        $route(to, from) {
             if (
-                (from.query.s && to.fullPath == "/") ||
-                (from.fullPath == "/" && to.query.s)
+                (from.query.s && to.fullPath == '/') ||
+                (from.fullPath == '/' && to.query.s)
             ) {
                 this.loadPosts();
             }
 
-            if (from.query.s && to.fullPath == "/") {
-                this.$store.dispatch('SEARCH_TERM', null);
+            if (from.query.s && to.fullPath == '/') {
+                this.$store.dispatch('PROP', {
+                    prop: 'searchQuery',
+                    value: null,
+                });
             }
-        }
-
-    }
-}
+        },
+        currentPage: function() {
+            this.loadPosts();
+        },
+    },
+};
 </script>

@@ -26,4 +26,8 @@ export default {
     socialNav(state) {
         return state.socialNav;
     },
-}
+
+    PROP: (state) => (prop) => {
+        return state[prop] !== undefined ? state[prop] : false;
+    },
+};

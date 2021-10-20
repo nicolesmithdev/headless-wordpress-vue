@@ -38,4 +38,15 @@ const router = new VueRouter({
     },
 });
 
+router.beforeEach(function(to, from, next) {
+    if (from.name) {
+        document.body.classList.remove(from.name);
+    }
+    if (to.name) {
+        document.body.classList.add(to.name);
+    }
+
+    next();
+});
+
 export default router;

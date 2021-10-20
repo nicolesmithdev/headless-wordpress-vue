@@ -1,6 +1,8 @@
-input, select, textarea {
+input,
+select,
+textarea {
     background-color: $white;
-    border: 1px solid #EAEAEA;
+    border: 1px solid #eaeaea;
     color: $dark-gray;
     font-size: $default-size;
     font-weight: 400;
@@ -18,9 +20,17 @@ input {
         border: 1px solid #999;
         outline: none;
     }
-    
-    &[type="search"] {
+
+    &[type='search'] {
         -webkit-appearance: textfield;
         outline-offset: -2px;
+    }
+}
+
+form {
+    ul {
+        li {
+            list-style: none;
+        }
     }
 }

@@ -2,15 +2,19 @@ module.exports = {
     css: {
         loaderOptions: {
             sass: {
-                additionalData: `@import "@/sass/style.sass"`
+                additionalData: `@import "@/sass/style.sass"`,
             },
             scss: {
-                additionalData: `@import "@/sass/style.scss";`
-            }
-        }
+                additionalData: `@import "@/sass/style.scss";`,
+            },
+        },
     },
 
-    transpileDependencies: [
-      'vuetify'
-    ]
+    transpileDependencies: ['vuetify'],
+
+    pluginOptions: {
+        browserSync: {
+            files: ['src/*'],
+        },
+    },
 };

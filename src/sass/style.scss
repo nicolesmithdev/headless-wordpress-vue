@@ -1,17 +1,9 @@
-@import
-    'abstracts/variables',
-    'abstracts/mixins';
+@import 'abstracts/variables', 'abstracts/mixins';
 
-@import
-    'base/base',
-    'base/typography';
+@import 'base/base', 'base/typography';
 
-@import
-    'components/blocks',
-    'components/buttons';
+@import 'components/blocks', 'components/buttons';
 
-@import
-    'layout/forms';
+@import 'layout/sidebar', 'layout/forms';
 
-@import
-    'pages/resources';
+@import 'pages/resources';

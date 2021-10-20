@@ -1,0 +1,36 @@
+.sidebar {
+    font-size: 14px;
+    line-height: 25px;
+    a:not(.button) {
+        color: $default-color;
+        text-decoration: none;
+        &:focus,
+        &:hover {
+            color: $pink;
+            text-decoration: underline;
+        }
+    }
+
+    section {
+        background-color: $white;
+        border: 5px solid $medium-gray;
+        margin-bottom: $padding;
+        padding: $padding/2;
+        text-align: center;
+    }
+
+    ul {
+        text-align: left;
+        li {
+            list-style: none;
+            &:not(:last-child) {
+                margin-bottom: $padding;
+            }
+            .post-date {
+                display: block;
+                font: italic #{13px}/#{15px} $serif;
+                text-transform: lowercase;
+            }
+        }
+    }
+}

@@ -17,27 +17,12 @@ export default {
         Search,
         SocialMedia,
         Bio,
-        PopularPosts
+        PopularPosts,
     },
     data() {
         return {
-            components: ['Search', 'SocialMedia', 'Bio', 'PopularPosts']
+            components: ['Search', 'SocialMedia', 'Bio', 'PopularPosts'],
         };
-    }
-}
+    },
+};
 </script>
-
-<style lang="scss" scoped>
-.sidebar {
-    font-size: 14px;
-    line-height: 25px;
-
-    section {
-        background-color: $white;
-        border: 5px solid $medium-gray;
-        margin-bottom: $padding;
-        padding: $padding/2;
-        text-align: center;
-    }
-}
-</style>

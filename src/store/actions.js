@@ -62,7 +62,7 @@ export default {
     LOAD_POSTS: async function({ commit }, payload) {
         let url =
             'wp/v2/posts?page=' +
-            payload.page +
+            (payload.page ? payload.page : 1) +
             '&per_page=' +
             payload.postsPerPage;
         if (payload.include) {

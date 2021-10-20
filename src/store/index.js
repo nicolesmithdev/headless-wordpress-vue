@@ -15,12 +15,13 @@ const store = new Vuex.Store({
             posts: [],
             primaryNav: [],
             searchQuery: null,
-            socialNav: []
+            searchResults: [],
+            socialNav: [],
         };
     },
     mutations,
     actions,
-    getters
+    getters,
 });
 
 export default store;

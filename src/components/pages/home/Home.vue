@@ -105,7 +105,10 @@ export default {
                 });
             }
         },
-        currentPage: function() {
+        currentPage() {
+            this.loadPosts();
+        },
+        hasSearchQuery() {
             this.loadPosts();
         },
     },

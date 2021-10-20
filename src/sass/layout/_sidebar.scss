@@ -1,6 +1,7 @@
 .sidebar {
     font-size: 14px;
     line-height: 25px;
+
     a:not(.button) {
         color: $default-color;
         text-decoration: none;
@@ -9,6 +10,13 @@
             color: $pink;
             text-decoration: underline;
         }
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: $padding/2;
+        text-transform: uppercase;
     }
 
     section {

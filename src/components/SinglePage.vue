@@ -11,7 +11,10 @@
                 <h1 class="entry-title" v-html="page.title.rendered"></h1>
             </header>
             <div v-html="page.content.rendered" class="entry-content"></div>
-            <footer class="entry-footer">
+            <footer
+                class="entry-footer"
+                v-if="categories && categories.length > 0"
+            >
                 <p class="entry-meta">
                     <span class="entry-categories">
                         Filed Under:

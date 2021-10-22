@@ -10,6 +10,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state() {
         return {
+            categories: [],
             page: {},
             pageCount: 0,
             posts: [],

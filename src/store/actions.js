@@ -1,4 +1,11 @@
 export default {
+    FETCH_CATEGORIES: async function({ commit }) {
+        const response = await this._vm.$http.get('wp/v2/categories');
+        if (response.status == 200) {
+            commit('MUTATE', { prop: 'categories', value: response.body });
+        }
+        return false;
+    },
     LOAD_NAV: async function({ commit }, payload) {
         await this._vm.$http.get('menus/v1/locations/' + payload.location).then(
             (response) => {

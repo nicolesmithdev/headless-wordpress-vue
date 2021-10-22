@@ -60,12 +60,20 @@ p {
         }
     }
 
-    .entry-meta {
+    .entry-header .entry-meta {
         color: $gray;
         font: italic #{13px}/#{$line-height} $serif;
         margin-bottom: 20px;
         text-align: center;
         text-transform: lowercase;
+    }
+
+    .entry-footer {
+        margin-top: $padding;
+        .entry-meta {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
     }
 }
 

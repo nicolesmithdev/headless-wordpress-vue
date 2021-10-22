@@ -1,22 +1,26 @@
 <template>
     <div :class="postClasses">
-        <p class="entry-meta" v-html="publishedDate" />
-        <h2 class="entry-title">
-            <router-link
-                :to="{ path: `/` + post.slug, params: {} }"
-                v-html="post.title.rendered"
-            ></router-link>
-        </h2>
-        <router-link :to="`/` + post.slug" v-if="image">
-            <v-img
-                transition="fade-transition"
-                :lazy-src="lazySrc"
-                :src="image"
-                :alt="post.title.rendered"
-            >
-            </v-img>
-        </router-link>
-        <div v-html="post.excerpt.rendered" class="entry-content"></div>
+        <header class="entry-header">
+            <p class="entry-meta" v-html="publishedDate" />
+            <h2 class="entry-title">
+                <router-link
+                    :to="{ path: `/` + post.slug, params: {} }"
+                    v-html="post.title.rendered"
+                ></router-link>
+            </h2>
+        </header>
+        <div class="entry-content">
+            <router-link :to="`/` + post.slug" v-if="image">
+                <v-img
+                    transition="fade-transition"
+                    :lazy-src="lazySrc"
+                    :src="image"
+                    :alt="post.title.rendered"
+                >
+                </v-img>
+            </router-link>
+            <div v-html="post.excerpt.rendered" />
+        </div>
     </div>
 </template>
 

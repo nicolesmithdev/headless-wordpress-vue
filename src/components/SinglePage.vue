@@ -59,8 +59,7 @@ export default {
                       this.page.type +
                       ' status-' +
                       this.page.status +
-                      ' format-' +
-                      this.page.format +
+                      (this.page.format ? 'format-' + this.page.format : '') +
                       ' ' +
                       categories.join(' ') +
                       ' entry'

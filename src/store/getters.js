@@ -32,4 +32,9 @@ export default {
     PROP: (state) => (prop) => {
         return state[prop] !== undefined ? state[prop] : false;
     },
+    PROP_KEY: (state) => ({ prop, key }) => {
+        return state[prop] && state[prop][key] !== undefined
+            ? state[prop][key]
+            : false;
+    },
 };

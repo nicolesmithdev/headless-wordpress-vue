@@ -6,6 +6,19 @@ export default {
         }
         return false;
     },
+    FETCH_COMMENTS: async function({ commit }, postId) {
+        const response = await this._vm.$http.get(
+            `wp/v2/comments?post=${postId}`
+        );
+        if (response.status == 200) {
+            commit('MUTATE_KEY', {
+                prop: 'page',
+                key: 'comments',
+                value: response.body,
+            });
+        }
+        return false;
+    },
     LOAD_NAV: async function({ commit }, payload) {
         await this._vm.$http.get('menus/v1/locations/' + payload.location).then(
             (response) => {

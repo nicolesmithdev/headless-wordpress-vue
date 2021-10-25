@@ -27,16 +27,16 @@
                 </p>
             </footer>
         </div>
-        <Comments :post-id="page.id" />
+        <CommentList v-if="page.comment_status === 'open'" :post-id="page.id" />
     </div>
 </template>
 
 <script>
-import Comments from '../components/comments/Comments';
+import CommentList from '../components/comments/CommentList';
 import { mapGetters } from 'vuex';
 import moment from 'moment';
 export default {
-    components: { Comments },
+    components: { CommentList },
     computed: {
         ...mapGetters(['page']),
         categories() {

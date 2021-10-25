@@ -1,0 +1,25 @@
+.comment {
+    margin-bottom: $padding * 2;
+    &-list {
+        .depth-1 {
+            padding-left: 0;
+        }
+        li {
+            list-style-type: none;
+            padding: 40px 0 0 30px;
+        }
+        > li:first-child {
+            padding-top: 0;
+        }
+    }
+    &-header {
+        margin-bottom: $padding;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .avatar {
+        float: left;
+        margin: 0 15px 20px 0;
+    }
+}

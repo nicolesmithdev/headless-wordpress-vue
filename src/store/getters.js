@@ -26,7 +26,9 @@ export default {
     socialNav(state) {
         return state.socialNav;
     },
-
+    LOADING: (state) => {
+        return state.ui.loading;
+    },
     PROP: (state) => (prop) => {
         return state[prop] !== undefined ? state[prop] : false;
     },

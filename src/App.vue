@@ -3,7 +3,8 @@
         <SiteHeader />
         <div class="container">
             <div class="content">
-                <transition name="fade" mode="out-in">
+                <BaseSpinner v-if="loading" />
+                <transition v-else name="fade" mode="out-in">
                     <router-view></router-view>
                 </transition>
             </div>
@@ -24,13 +25,44 @@ export default {
         SiteFooter,
         Sidebar,
     },
-    data() {
-        return {
-            isLoading: true,
-        };
-    },
     beforeMount() {
         this.$store.dispatch('FETCH_CATEGORIES');
+    },
+    created() {
+        this.loadPage();
+    },
+    computed: {
+        loading() {
+            return this.$store.getters.LOADING;
+        },
+    },
+    methods: {
+        async loadPage() {
+            this.$store.dispatch('PROP_KEY', {
+                prop: 'ui',
+                key: 'loading',
+                value: true,
+            });
+
+            try {
+                await this.$store.dispatch('LOAD_PAGE', {
+                    route: this.$route.params.slug,
+                });
+            } catch (error) {
+                console.log('loadPage error', error);
+            }
+
+            this.$store.dispatch('PROP_KEY', {
+                prop: 'ui',
+                key: 'loading',
+                value: false,
+            });
+        },
+    },
+    watch: {
+        $route() {
+            this.loadPage();
+        },
     },
 };
 </script>

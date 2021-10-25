@@ -18,6 +18,9 @@ const store = new Vuex.Store({
             searchQuery: null,
             searchResults: [],
             socialNav: [],
+            ui: {
+                loading: true,
+            },
         };
     },
     mutations,

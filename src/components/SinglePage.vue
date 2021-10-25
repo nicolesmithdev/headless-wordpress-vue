@@ -1,7 +1,6 @@
 <template>
-    <div :class="pageClasses">
-        <BaseSpinner v-if="isLoading" />
-        <template v-else>
+    <div>
+        <div :class="pageClasses">
             <header class="entry-header">
                 <p
                     v-if="page.type == 'post'"
@@ -27,19 +26,17 @@
                     </span>
                 </p>
             </footer>
-        </template>
+        </div>
+        <Comments :post-id="page.id" />
     </div>
 </template>
 
 <script>
+import Comments from '../components/comments/Comments';
 import { mapGetters } from 'vuex';
 import moment from 'moment';
 export default {
-    data() {
-        return {
-            isLoading: false,
-        };
-    },
+    components: { Comments },
     computed: {
         ...mapGetters(['page']),
         categories() {
@@ -70,29 +67,6 @@ export default {
         },
         publishedDate() {
             return moment(this.page.date).format('MMMM d, YYYY');
-        },
-    },
-    methods: {
-        async loadPage() {
-            this.isLoading = true;
-
-            try {
-                await this.$store.dispatch('LOAD_PAGE', {
-                    route: this.$route.params.slug,
-                });
-            } catch (error) {
-                console.log('loadPage error', error);
-            }
-
-            this.isLoading = false;
-        },
-    },
-    created() {
-        this.loadPage();
-    },
-    watch: {
-        $route() {
-            this.loadPage();
         },
     },
 };

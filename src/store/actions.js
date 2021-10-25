@@ -119,4 +119,10 @@ export default {
         }
         commit('MUTATE', { prop, value });
     },
+    PROP_KEY: ({ commit }, { prop, key, value }) => {
+        if (!key || value === undefined) {
+            return false;
+        }
+        commit('MUTATE_KEY', { prop, key, value });
+    },
 };

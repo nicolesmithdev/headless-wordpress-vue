@@ -1,6 +1,10 @@
 <template>
     <footer class="site-footer">
-        <p>&copy; 2017 - {{ new Date().getFullYear() }} Nicole Smith, Toning With Twins. All Rights Reserved. <router-link to="/privacy/">Privacy Policy</router-link></p>
+        <p>
+            &copy; 2017 - {{ new Date().getFullYear() }} Nicole Smith, Toning
+            With Twins. All Rights Reserved.
+            <router-link to="/privacy/">Privacy Policy</router-link>
+        </p>
     </footer>
 </template>
 
@@ -9,7 +13,7 @@
     background-color: $dark-gray;
     clear: both;
     color: $white;
-    padding: $padding/2;
+    padding: $padding * 0.5;
     text-align: center;
 
     @include respond-to('x-small') {

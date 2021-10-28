@@ -29,7 +29,7 @@ img {
 }
 
 p:not(:last-child) {
-    margin-bottom: $padding/2;
+    margin-bottom: $padding * 0.5;
 }
 
 .button {

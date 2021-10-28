@@ -15,7 +15,7 @@
     h3 {
         font-size: 18px;
         font-weight: 700;
-        margin-bottom: $padding/2;
+        margin-bottom: $padding * 0.5;
         text-transform: uppercase;
     }
 
@@ -23,7 +23,7 @@
         background-color: $white;
         border: 5px solid $medium-gray;
         margin-bottom: $padding;
-        padding: $padding/2;
+        padding: $padding * 0.5;
         text-align: center;
     }
 

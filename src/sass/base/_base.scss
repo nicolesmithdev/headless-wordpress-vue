@@ -41,7 +41,7 @@ p {
     padding: $padding;
 
     @include respond-to('x-small') {
-        padding: $padding/2;
+        padding: $padding * 0.5;
     }
 
     .entry-title {

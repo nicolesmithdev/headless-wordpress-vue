@@ -6,7 +6,7 @@ textarea {
     color: $dark-gray;
     font-size: $default-size;
     font-weight: 400;
-    padding: $padding/2;
+    padding: $padding * 0.5;
     width: 100%;
 }
 
@@ -25,6 +25,19 @@ input {
         -webkit-appearance: textfield;
         outline-offset: -2px;
     }
+    &[type='checkbox'],
+    &[type='image'],
+    &[type='radio'] {
+        width: auto;
+    }
+}
+
+label {
+    font-weight: 700;
+    .gfield_checkbox li &,
+    .gfield_radio li & {
+        font-weight: 400;
+    }
 }
 
 form {
@@ -33,4 +46,9 @@ form {
             list-style: none;
         }
     }
+}
+
+.gfield_required {
+    color: #790000;
+    margin-left: 4px;
 }

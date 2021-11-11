@@ -35,8 +35,12 @@
 import CommentList from '../components/comments/CommentList';
 import { mapGetters } from 'vuex';
 import moment from 'moment';
+import processForms from '../assets/js/processForms';
 export default {
     components: { CommentList },
+    mounted() {
+        processForms();
+    },
     computed: {
         ...mapGetters(['page']),
         categories() {

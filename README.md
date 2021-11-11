@@ -1,24 +1,9 @@
 # headless-blog
 
-## Project setup
-```
-npm install
-```
+For this project you need both the front-end and back-end running at the same time. You will also need a client key for Gravity Forms.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Backend
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-   In the `admin` folder, rename `.env.sample` to `.env`
+-   Generate a Gravity Forms API key inside WP-Admin > Forms > Settings > Rest API
+-   Add your keys to `admin/.env`

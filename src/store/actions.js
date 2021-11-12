@@ -19,6 +19,24 @@ export default {
         }
         return false;
     },
+    FETCH_SEARCH_RESULTS: async function({ dispatch }, payload) {
+        let url =
+            'wp/v2/search?search=' +
+            payload.query +
+            '&per_page=' +
+            payload.postsPerPage;
+
+        await this._vm.$http.get(url).then((response) => {
+            const postIds = response.data.map((post) => {
+                return post.id;
+            });
+
+            dispatch('LOAD_POSTS', {
+                postsPerPage: payload.postsPerPage,
+                include: postIds,
+            });
+        });
+    },
     LOAD_NAV: async function({ commit }, payload) {
         await this._vm.$http.get('menus/v1/locations/' + payload.location).then(
             (response) => {
@@ -55,7 +73,6 @@ export default {
             }
         );
     },
-
     LOAD_PAGE: async function({ commit, dispatch }, payload) {
         const response = await this._vm.$http.get(
             `wp/v2/pages/?slug=${payload.route}`
@@ -68,7 +85,6 @@ export default {
         }
         return false;
     },
-
     LOAD_POST: async function({ commit }, payload) {
         const response = await this._vm.$http.get(
             `wp/v2/posts/?slug=${payload.route}`
@@ -78,7 +94,6 @@ export default {
         }
         return false;
     },
-
     LOAD_POSTS: async function({ commit }, payload) {
         let url =
             'wp/v2/posts?page=' +
@@ -106,26 +121,6 @@ export default {
             });
         });
     },
-
-    FETCH_SEARCH_RESULTS: async function({ dispatch }, payload) {
-        let url =
-            'wp/v2/search?search=' +
-            payload.query +
-            '&per_page=' +
-            payload.postsPerPage;
-
-        await this._vm.$http.get(url).then((response) => {
-            const postIds = response.data.map((post) => {
-                return post.id;
-            });
-
-            dispatch('LOAD_POSTS', {
-                postsPerPage: payload.postsPerPage,
-                include: postIds,
-            });
-        });
-    },
-
     PROP: ({ commit }, { prop, value }) => {
         if (!prop || value === undefined) {
             return false;

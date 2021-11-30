@@ -1,4 +1,3 @@
-
 .blocks-gallery-grid,
 .wp-block-gallery {
     display: flex;
@@ -6,7 +5,10 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-
+    img {
+        border: 1px solid #eee;
+        padding: 4px;
+    }
     .blocks-gallery-item {
         display: flex;
         flex-direction: column;
@@ -15,6 +17,29 @@
         margin: 0 1em 1em 0;
         position: relative;
         width: calc(50% - 1em);
+        figure {
+            align-items: flex-end;
+            display: flex;
+            justify-content: flex-start;
+        }
+        figcaption {
+            background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.3) 70%,
+                transparent
+            );
+            bottom: 0;
+            color: $white;
+            font-size: 0.8em;
+            margin: 0;
+            max-height: 100%;
+            overflow: auto;
+            padding: 3em 0.77em 0.7em;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
     }
 }
 
@@ -39,7 +64,7 @@
                 margin-left: 2em;
             }
 
-            &[style*="flex-basis"] {
+            &[style*='flex-basis'] {
                 flex-grow: 0;
             }
         }
@@ -47,14 +72,24 @@
 }
 
 .wp-block-image {
+    figcaption {
+        color: #666;
+        font-size: 16px;
+        font-style: italic;
+        margin-top: 10px;
+        margin-bottom: $padding;
+        text-align: center;
+    }
+    img {
+        display: block;
+    }
     .aligncenter {
         display: table;
         margin-left: auto;
         margin-right: auto;
     }
-
     .alignright {
         float: right;
-        margin: 0.5em 0 .5em 2em;
+        margin: 0.5em 0 0.5em 2em;
     }
 }

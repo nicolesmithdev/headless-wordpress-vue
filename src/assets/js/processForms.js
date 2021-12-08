@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 const processForms = () => {
-    console.log('processForms.js initiated');
     const formElement = document.getElementById('gform_1');
     formElement.addEventListener('submit', function(e) {
-        console.log('#gform_1 event listener');
         e.preventDefault();
 
         const formData = new FormData(formElement);
@@ -21,18 +19,20 @@ const processForms = () => {
             newFormData.append(item[0].replace('input_', ''), item[1])
         );
 
-        let config = {
+        axios({
             method: 'POST',
             url: 'http://localhost:3000/submit',
             data: newFormData,
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
-        };
-        axios(config).then((response) => {
-            // console.log('success!', JSON.stringify(response.data));
+        }).then((response) => {
             if (response.status == '200') {
-                window.location = '/';
+                let key = Object.keys(response.data)[0];
+                let confirmationMessage = response.data[key].message;
+                document.querySelector('.content').scrollIntoView();
+                document.querySelector('.entry-content').innerHTML =
+                    '<p>' + confirmationMessage + '</p>';
             }
         });
     });

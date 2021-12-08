@@ -7,3 +7,5 @@ For this project you need both the front-end and back-end running at the same ti
 -   In the `admin` folder, rename `.env.sample` to `.env`
 -   Generate a Gravity Forms API key inside WP-Admin > Forms > Settings > Rest API
 -   Add your keys to `admin/.env`
+-   Run `npm install`
+-   Run `nodemon index.js` to start the web server
